@@ -1,0 +1,174 @@
+
+<!doctype HTML>
+<html>
+	<head>
+		<title>Research</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="videoUpload.jsp">EE464 <span>ORSHANSKY</span></a></div>
+				<a id="menu_refer" href="#menu"><span>Menu</span></a>
+			</header>
+
+
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links" id="clickmenu">
+					<li><a id="home" href="videoUpload.jsp">Home</a></li>
+					<li><a id="meetteam" href="teampage.html">Meet the Team</a></li>
+					<li><a id="research" href="research.html">Research</a></li>
+				</ul>
+			</nav>
+			
+			
+		<!-- Content -->
+			<section id="intro" class="wrapper bg-img">
+				<div class="inner" style="margin-left: auto; margin-right: auto;">
+					<article class="box">
+						<header>
+							<h2 align="center">Background</h2>
+							<p align="center">Importance and Motivation</p>
+						</header>
+						<div class="content">
+						
+						<p>
+						Machine learning has been a growing area of interest in technology over the past several years. 
+						A subdivision of this is the concept of detecting activity in videos, also known as video-based 
+						activity recognition. Recently, there has been a push to better understand how to classify videos 
+						with different actions and objects.
+						<br>
+						<br>
+						The design problem is to gather and analyze complex action classification data from videos for use in complex action 
+						classification. Atomic action recognition focuses on a simple motion in few seconds. On the contrary, complex actions 
+						last varying lengths from several seconds to several minutes. By using a combination of atomic actions and object data 
+						about a video, it may be possible to deduce the complex action that the object of interest is taking.
+						<br>
+						<br>
+						The motivation behind the project is to explore the concept of building on atomic actions and object classification 
+						to classify complex actions, which has never been done before. Different methods for video-based activity recognition 
+						have been developed and attempted in the past, but the search for better complex action recognition methods is ongoing. 
+						The need to classify longer streams of videos coupled with complex actions is relevant to applying video-based recognition 
+						in real-world situations. 
+						<br>
+						<br>
+						<video style="width:50%;display:inline;margin: 0 auto;" width="350" height="263" src ="http://data.csail.mit.edu/soundnet/gifs/bending/giphy-3o6MbkH2aNgf5dYGGs_0.webm" autoplay muted controls loop></video>
+						<video style="width:49%;display:inline;margin: 0 auto;" width="350" height="263" src ="http://data.csail.mit.edu/soundnet/gifs/bowing/giphy-3og0ICRWgA6j7AjpS0_0.webm" autoplay muted controls loop></video>
+						<br>
+						The following videos shown below are very similar, but given context of objects and other actions taken there is a difference from the seemingly
+						similar atomic action of bending/bowing downwards of both the main characters in the video:
+						<ul>
+						<li>The first picture in a complex manner is: Marge looking at a picture. This may seem simple, but to know this, we needed to 
+						know the presence of a picture frame and possibly pointing involved along with the bending classification. </li>
+						<li> In the second picture the complex manner is: a man is kneeling to a woman, but to know this, we needed to see a woman and see that
+						although it looks like he might be bending like Marge, but he is bowing+taking a knee. </li>
+						</ul>
+
+						An example of this real-world application is through monitoring seniors and senior activity in their homes. Instead of having a 
+						caretaker that needs to constantly watch over them, the video monitoring system could instead analyze the actions the seniors take 
+						and detect if there is an abrupt change in their daily patterns. On a similar note, this can be extended to monitoring patients 
+						in hospitals. By building a system that can detect complex actions, it is possible to give back autonomy and privacy to those who need it.
+						<br>
+						<br>
+						By combining the data gathered from atomic action classification and object classification, this project will produce a method for 
+						gathering an intermediate form of the data for video-based activity recognition. This method will be used to detect and identify complex 
+						actions. A web application will be created so that a user is able to further explore the problem of complex action classification and see 
+						some sample videos that were run through the classifier. The video processor will use a webcam as video input and will recognize objects and 
+						actions taken in the video feed and display it on a monitor. 	
+						</p>
+
+						</div>
+					</article>
+				</div>
+			</section>
+			
+			
+			<section id="YOLO" class="wrapper bg-img">
+				<div class="inner" style="margin-left: auto; margin-right: auto;">
+					<article class="box">
+						<header>
+							<h2 align="center">Object Detection</h2>
+							<p align="center">YOLO Pretrained Model</p>
+						</header>
+						<div class="content">
+						
+						<p>
+						The purpose of the Object Recognition subsystem is to gather information about objects in each frame of a video. 
+						Since the atomic action classes are fairly universal, combining them with the objects in the scene will produce a more 
+						specific action expressing both actions and the objects involved or affected by those actions. For example, the word “pressing” 
+						can apply to many objects, but when combined with the object “knife,” the resulting complex action is “cutting”. 
+						Thus, assembling object recognition with atomic action classes will add information that is useful for complex action recognition.
+						<br>
+						<br>
+						After doing some research on current state-of-the-art object classifiers, our team chose to use YOLO, or You Only Look Once, 
+						as our object detection system because of its accuracy and performance. 
+						<br>
+						<img style="margin-left: auto; margin-right: auto;display: block" width="500" height= "300" src="images/map50blueYOLO.png" alt="YOLO performance">
+						<br>
+						The above picture was taken from their <a href-"https://pjreddie.com/darknet/yolo/">website</a>. 
+	
+						By default, YOLO uses Darknet for its CNN to produce feature vectors. YOLO currently runs with Darknet and performs with above the 
+						80% accuracy threshold as outlined in the Specifications section. Since the atomic action classifier also uses CNN-generated 
+						feature vectors, YOLO will be retrained to take the feature vectors generated for atomic action classification. We implemented YOLO by referring to
+						this <a href="https://github.com/qqwweee/keras-yolo3">Github repo</a>. 
+						
+						<br>
+						<br>
+						For more information on understanding how YOLO works, please refer <a href="https://hackernoon.com/understanding-yolo-f5a74bbc7967">here</a> 
+						or refer to <a href="https://pjreddie.com/media/files/papers/yolo.pdf">this paper</a>. 
+						</p>
+
+						</div>
+					</article>
+				</div>
+			</section>
+			
+			<section id="actions" class="wrapper bg-img">
+				<div class="inner" style="margin-left: auto; margin-right: auto;">
+					<article class="box">
+						<header>
+							<h2 align="center">Atomic Action Recognition</h2>
+							<p align="center">Reduced Class Size Model</p>
+						</header>
+						<div class="content">
+						
+						<p>
+						The purpose of the Atomic Action Classification subsystem is to provide atomic action predictions and probabilities for a given video segment. 
+						<br>
+						First, our team utilized <a href="https://arxiv.org/pdf/1801.03150.pdf">Moments research done by the MIT-IBM Watson AI Lab team</a>. Their project has a sufficiently large dataset that recognized actions and events in videos. 
+						Their dataset has a collection of one million labeled 3 second videos of a variety of different subject from people to animals to objects to natural phenomenas. However, we identified 
+						a couple of potential issues with this pretrained model that conflicted with the purpose of our project, which was to identify atomic actions:
+							<ul>
+								<li>Many classes were similar, such as jogging and running</li>
+								<li>Many classes were <i><b>not</b></i> atomic actions, but complex. For example, cooking could involve a variety of smaller atomic actions
+								like: cutting, boiling, mixing, etc. </li>
+							</ul>
+						Therefore, we decreased the 300+ classes down to ~60 atomic actions we thought were valuable and mutually exclusive. These were our results:
+						<b>insert picture of results compared to MIT</b>
+						</p>
+
+						</div>
+					</article>
+				</div>
+			</section>
+			
+
+		<!-- Footer -->
+			<footer id="footer">
+			</footer>
+
+		<!-- Scripts -->
+			<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.scrolly.min.js"></script>
+			<script src="js/jquery.scrollex.min.js"></script>
+			<script src="js/skel.min.js"></script>
+			<script src="js/util.js"></script>
+			<script src="js/main.js"></script>
+
+	</body>
+</html>
